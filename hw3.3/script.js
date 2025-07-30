@@ -15,3 +15,4 @@ num = (num - digit1) / 10;
 let digit0 = num % 10;
 
 console.log(`${digit0} ${digit1} ${digit2} ${digit3} ${digit4}`);
+  
