@@ -13,5 +13,5 @@ for(let i = 0; 3 ** i <= yourNumber; i++) {
 if(isPowerOfThree) {
     document.write("Your number is a power of 3!");
 } else {
-    document.write("Your number isn't a power of 3!");
+    document.write("Your number isn't a power of 3.");
 }
