@@ -11,7 +11,7 @@ function checkInput(num, i) {
 
 function askInput() {
     for (let i = 0; i < 10; i++) {
-        let input = parseInt(prompt("Enter number that is bigger than 100."));
+        let input = prompt("Enter number that is bigger than 100.");
 
         if (checkInput(input, i)) {
             return input; 
