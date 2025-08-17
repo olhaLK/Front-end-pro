@@ -12,13 +12,17 @@ let ladder = {
 }
 
 
-ladder.up().down().up().up();
-
-
-if (ladder.step > 0) {
-    ladder.showStep();
-} else if (ladder.step === 0) {
-    console.log(`You still on your start position: ${ladder.step}`);
-} else {
-    console.log(`You can't go on ${ladder.step} step`);
+function checkSteps(obj) {
+    if (obj.step > 0) {
+        obj.showStep();
+    } else if (obj.step === 0) {
+        console.log(`You still on your start position: ${obj.step}`);
+    } else {
+        console.log(`You can't go on ${obj.step} step`);
+    }
 }
+
+
+
+ladder.up().down().up().up();
+checkSteps(ladder);
