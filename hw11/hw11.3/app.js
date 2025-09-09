@@ -9,8 +9,8 @@ randomBtn.addEventListener('click', function() {
     
     let randomImg = document.createElement('img');
     randomImg.src = 'images/' + randomNum + '.JPG';
-    randomImg.width = 200;   
-    randomImg.height = 200;
-    
+    randomImg.width = 400;   
+    randomImg.height = 400;
+
     container.appendChild(randomImg);
 });

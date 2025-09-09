@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Form</h2>
+    <form name="signUp">
+        <h3>Name</h3>
+        <p><input type="text" name="name" class="name" placeholder="Enter your name"></p>
+
+        <h3>Surname</h3>
+        <p><input type="text" name="surname" class="surname" placeholder="Enter your surname"></p>
+
+        <h3>Birth day</h3>
+        <p><input type="date" name="bday" class="bday"></p>
+
+        <h3>Gender</h3>
+        <p><input type="radio" name="gender" value="M">Male</p>
+        <p><input type="radio" name="gender" value="F">Female</p>
+
+        <h3>City</h3>
+        <select name="city">
+            <option value="ODS">Odessa</option>
+            <option value="KV">Kyiv</option>
+            <option value="LV">Lviv</option>
+            <option value="KH">Kharkiv</option>
+            <option value="VN">Vinica</option>
+        </select>
+
+        <h3>Adress</h3>
+        <textarea name="adress" value="adr" placeholder="Enter your adress"></textarea>
+
+        <h3>Languages</h3>
+        <p><input type="checkbox" name="lang" value="en">English</p>
+        <p><input type="checkbox" name="lang" value="uk">Ukrainian</p>
+        <p><input type="checkbox" name="lang" value="ru">Russian</p>
+        <p><input type="checkbox" name="lang" value="fr">French</p>
+        <p><input type="checkbox" name="lang" value="de">German</p>
+
+        <p><button type="button">Save</button></p>
+    </form>
+
+    <div name="table"></div>
+    <script src="app.js"></script>
+</body>
+</html>

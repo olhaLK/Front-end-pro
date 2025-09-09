@@ -17,6 +17,7 @@ function findAverage(arr) {
     return arr.filter(student => student.average >= 4.5);
 }
 
+
 const averages = newArray(students);
 
 
