@@ -50,12 +50,40 @@ const showProductsByCategory = category => {
 
   productsList.addEventListener('click', event => {
     if (event.target && event.target.tagName === 'LI') {
+      // color change
+      Array.from(productsList.querySelectorAll('li.active')).forEach(li => li.classList.remove('active'));
+      event.target.classList.add('active');
+
       console.log(event.target);
       // const categoryId = category.id
       const categoryId = event.target.getAttribute('data-category');
       const productId = event.target.getAttribute('data-product');
-      // TODO: (at home)
+
+      // TODO: (at home);
+
       // Add content to the third column
+      const infoContainer = document.querySelector('.info');
+      if (!infoContainer) {
+        return;
+      }
+      
+      infoContainer.innerHTML = ''
+      
+      const infoList = document.createElement('ul');
+
+      const getProductById = id => products.find(product => product.id == id);
+
+      const product = getProductById(productId);
+      if (!product) {
+        return;
+      }
+
+      const description = document.createElement('li');
+      description.textContent = product.description;
+
+      infoList.appendChild(description);
+
+      infoContainer.appendChild(infoList);
     }
   });
 
