@@ -15,17 +15,6 @@ ul {
   margin: 0;
 }
 
-.wrapper {
-  display: flex;
-  gap: 20px;
-}
-.wrapper div {
-  min-width: 350px;
-  min-height: 100px;
-  padding: 20px;
-  border: 1px solid rgb(135, 87, 87);
-}
-
 .categories ul {
   display: flex;
   gap: 10px;
@@ -45,7 +34,6 @@ ul {
   gap: 6px;
 }
 .products li {
-  padding: 6px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
@@ -57,7 +45,7 @@ ul {
 }
 
 .orderForm {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 15px;
   max-width: 400px;
@@ -107,8 +95,27 @@ ul {
 .orderForm .count {
   max-width: 120px;
 }
+.orderForm .btn-save {
+  background-color: #ff7f32;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.orderForm .btn-save:hover {
+  background-color: #e96b1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 
 .order-details {
+  display: none;
   max-width: 400px;
   margin: 20px auto;
   padding: 15px;
@@ -129,10 +136,17 @@ ul {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
 }
-.btn-buy :hover {
+.btn-buy:hover {
   background-color: #e96b1f;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.info {
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

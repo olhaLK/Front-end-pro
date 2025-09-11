@@ -78,6 +78,12 @@ const showProductsByCategory = category => {
         return;
       }
 
+      window.selectedProduct = {
+        ...product,
+        categoryId: category.id,
+        categoryName: category.name
+      };
+
       const description = document.createElement('li');
       description.textContent = product.description;
 
