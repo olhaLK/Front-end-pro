@@ -1,0 +1,21 @@
+.btn-buy {
+  display: inline-block;
+  background-color: #ff7f32;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;     
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  &:hover {
+    background-color: #e96b1f;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+  margin-top: 10px;  
+
+}

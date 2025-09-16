@@ -1,0 +1,89 @@
+.orderForm {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #fafafa;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    p {
+        margin: 0;
+        font-weight: 600;
+        color: #333;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+        border-color: #ff7f32;
+        box-shadow: 0 0 5px rgba(255, 127, 50, 0.5);
+        }
+    }
+
+    input[type="number"] {
+        max-width: 100px;
+    }
+
+    textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    .name {
+        text-transform: capitalize;
+    }
+
+    .post {
+        text-align: center;
+    }
+
+    .count {
+        max-width: 120px;
+    }
+
+    .btn-save {
+        background-color: #ff7f32;
+        color: #fff;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;     
+        line-height: 1.5;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
+        
+        &:hover {
+            background-color: #e96b1f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+    }
+}
+
+.order-details {
+    display: none;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px dashed #ff7f32;
+    border-radius: 10px;
+    background: #fff3eb;
+    font-size: 14px;
+    color: #444;
+}
