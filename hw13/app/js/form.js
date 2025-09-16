@@ -6,7 +6,7 @@ const cities = {
   VN: "Vinnytsia"
 };
 
-const maethods = {
+const methods = {
   POD: "Payment on delivery",
   CP: "Card payment",
 };
@@ -16,26 +16,63 @@ const form = document.forms.orderForm;
 const tableContainer = document.querySelector('.order-details');
 const btnSave = document.querySelector('.btn-save');
 
+
 if (form) {
   form.style.display = 'none';
+}
+
+if (btnBuy) {
+  btnBuy.addEventListener('click', () =>{
+    const product = window.selectedProduct;
+    if (!product) {
+      alert('Please select a product first');
+      return;
+    }
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    orders.push({
+      date: new Date().toISOString(),
+      name: product.name,
+      categoryName: product.categoryName,
+      price: product.price
+    });
+
+    localStorage.setItem('orders', JSON.stringify(orders));
+  })
 }
 
 if (btnBuy && form) {
   btnBuy.addEventListener('click', () => {
     form.style.display = 'flex';
   })
+  tableContainer.style.display = 'none'; 
 }
 
 if (tableContainer) {
   tableContainer.style.display = 'none';
 }
 
-
 if (btnSave && tableContainer) {
   btnSave.addEventListener('click', () => {
     tableContainer.style.display = 'flex';
   })
 }
+
+
+export function addRows(label, value, table) {
+  const tr = document.createElement('tr');
+  const td1 = document.createElement('td');
+  const td2 = document.createElement('td');
+
+  td1.textContent = label;
+  td2.textContent = value;
+
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+
+  table.appendChild(tr);
+}
+
 
 document.querySelector('.btn-save').addEventListener('click', () => {
   const form = document.forms.orderForm;
@@ -55,37 +92,21 @@ document.querySelector('.btn-save').addEventListener('click', () => {
 
   const tableContainer = document.querySelector('.order-details');
   tableContainer.innerHTML = '';
-
-  const table = document.createElement('table');
-
-
-  function addRows(label, value) {
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
-
-    td1.textContent = label;
-    td2.textContent = value;
-
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-
-    table.appendChild(tr);
-  }
-
+  
+  const tableDetails = document.createElement('table');
 
   const product = window.selectedProduct;
-  addRows("Product", product.name);
-  addRows("Category", product.categoryName);
-  addRows("Price", product.price);
+  addRows("Product", product.name, tableDetails);
+  addRows("Category", product.categoryName, tableDetails);
+  addRows("Price", product.price, tableDetails);
 
-  addRows("Name", name);
-  addRows("City", cities[city]);
-  addRows("Post office №", post);
-  addRows("Payment method", method);
-  addRows("Count of products", count);
-  addRows("Comment to your order", comm);
+  addRows("Name", name, tableDetails);
+  addRows("City", cities[city], tableDetails);
+  addRows("Post office №", post, tableDetails);
+  addRows("Payment method", methods[method], tableDetails);
+  addRows("Count of products", count, tableDetails);
+  addRows("Comment to your order", comm, tableDetails);
 
   form.style.display = "none";
-  tableContainer.appendChild(table);
+  tableContainer.appendChild(tableDetails);
 })

@@ -1,0 +1,35 @@
+.orders-list {  
+    display: none;          
+    flex-direction: column;  
+    gap: 16px;               
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;     
+    li {
+        border: 1px solid #ccc; 
+        border-radius: 6px;    
+        padding: 12px;
+        background-color: #fafafa; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        table {
+            width: 100%;
+            border-collapse: collapse;     
+            td {
+                padding: 6px 10px;
+                border-bottom: 1px solid #ddd;
+                border-bottom: none; 
+                &:first-child {
+                    font-weight: bold; 
+                    width: 35%;       
+                }
+            }
+            tr {
+
+                &:last-child {
+                    border-bottom: none; 
+                }
+        
+            }
+        }
+    }
+}

@@ -1,3 +1,9 @@
+import { addRows } from './form.js';
+
+
+//-------------------------------------
+
+
 const showCategories = () => {
   const parent = document.querySelector('.categories');
   if (!parent) {
@@ -8,12 +14,10 @@ const showCategories = () => {
   categoriesList.addEventListener('click', event => {
     if (event.target && event.target.tagName === 'LI') {
       const categoryId = event.target.getAttribute('data-category');
-      // const category = getCategoryById(categoryId);
       const category = categories[categoryId];
       if (!category) {
         return;
       }
-      // console.log(category);
       showProductsByCategory(category);
 
     }
@@ -24,20 +28,14 @@ const showCategories = () => {
     element.textContent = category.name;
     element.setAttribute('data-category', category.id);
 
-    // element.addEventListener('click', () => {
-    //   console.log(category);
-    // });
-
     categoriesList.appendChild(element);
   });
 
   parent.appendChild(categoriesList);
 }
 
-// const getCategoryById = id => categories.find(category => category.id == id);
 
 const showProductsByCategory = category => {
-  // const { products } = category; те саме, що і нижче
   const products = category.products;
   const parent = document.querySelector('.products');
   if (!parent) {
@@ -50,18 +48,13 @@ const showProductsByCategory = category => {
 
   productsList.addEventListener('click', event => {
     if (event.target && event.target.tagName === 'LI') {
-      // color change
       Array.from(productsList.querySelectorAll('li.active')).forEach(li => li.classList.remove('active'));
       event.target.classList.add('active');
 
       console.log(event.target);
-      // const categoryId = category.id
+
       const categoryId = event.target.getAttribute('data-category');
       const productId = event.target.getAttribute('data-product');
-
-      // TODO: (at home);
-
-      // Add content to the third column
       const infoContainer = document.querySelector('.info');
       if (!infoContainer) {
         return;
@@ -99,9 +92,6 @@ const showProductsByCategory = category => {
     element.textContent = `${product.name} - $${product.price}`;
     element.setAttribute('data-product', product.id);
     element.setAttribute('data-category', category.id);
-    // element.addEventListener('click', () => {
-    //   console.log(product);
-    // })
     productsList.appendChild(element);
   });
 
@@ -110,3 +100,72 @@ const showProductsByCategory = category => {
 
 
 showCategories();
+
+
+//-----MY ORDERS--------
+
+const ordersContainer = document.querySelector('.order-details');
+const btnMyOrders = document.querySelector('.my-orders');
+const btnBack = document.querySelector('.btn-back');
+
+
+const createShopPage = () => {
+  document.querySelector('.wrapper').innerHTML = `
+  <div class="categories"></div>
+  <div class="products"></div>
+  <div class="info"></div>
+  <button type="button" class="btn-buy">Buy</button>
+  `;
+
+  showCategories();
+
+  
+  ordersContainer.innerHTML = '';
+}
+
+
+const ordersList = document.createElement('ul');
+ordersList.classList.add('orders-list');
+
+
+btnMyOrders.addEventListener('click', () => {
+  const wrapper = document.querySelector('.wrapper');
+  wrapper.innerHTML = '';
+
+  wrapper.appendChild(btnBack);
+  wrapper.appendChild(ordersList);
+
+  btnBack.style.display = 'inline-block';
+  ordersList.style.display = 'flex';
+
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+  if (orders.length === 0) {
+    wrapper.innerHTML = `<p class="empty-text">You don't have any orders yet...</p>`
+    return;
+  } 
+
+  ordersList.innerHTML = '';
+
+  for (const order of orders) {
+    const orderItem = document.createElement('li');
+    const btnDelete = document.createElement('button');
+    btnDelete.type = 'button';
+    btnDelete.textContent = 'Delete';
+    btnDelete.classList.add = 'btn-delete';
+
+    const tableOrders = document.createElement('table');
+    addRows("Date", new Date(order.date).toLocaleString(), tableOrders);
+    addRows("Product", order.name, tableOrders);
+    addRows("Category", order.categoryName, tableOrders);
+    addRows("Price", order.price, tableOrders);
+
+    orderItem.appendChild(tableOrders);
+    ordersList.appendChild(orderItem);
+  }
+
+  btnBack.addEventListener('click', () => {
+    createShopPage();
+  })
+})
+

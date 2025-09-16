@@ -149,4 +149,85 @@ ul {
 
 .info {
   margin-top: 10px;
+}
+
+.btn-back {
+  display: none;
+  background-color: #ff7f32;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-back:hover {
+  background-color: #e96b1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.orders-list {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+.orders-list li {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.orders-list li table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.orders-list li table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #ddd;
+  border-bottom: none;
+}
+.orders-list li table td:first-child {
+  font-weight: bold;
+  width: 35%;
+}
+.orders-list li table tr:last-child {
+  border-bottom: none;
+}
+
+.empty-text {
+  margin: 20px;
+  font-size: 30px;
+  color: grey;
+  text-align: center;
+}
+
+.my-orders {
+  display: inline-block;
+  background-color: #ff7f32;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.my-orders:hover {
+  background-color: #e96b1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }/*# sourceMappingURL=style.css.map */
