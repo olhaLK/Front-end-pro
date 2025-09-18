@@ -4,6 +4,7 @@ import { addRows } from './form.js';
 //-------------------------------------
 
 
+
 const showCategories = () => {
   const parent = document.querySelector('.categories');
   if (!parent) {
@@ -33,6 +34,7 @@ const showCategories = () => {
 
   parent.appendChild(categoriesList);
 }
+
 
 
 const showProductsByCategory = category => {
@@ -99,15 +101,19 @@ const showProductsByCategory = category => {
 }
 
 
+
 showCategories();
+
 
 
 //-----MY ORDERS--------
 
-const ordersContainer = document.querySelector('.order-details');
+const orderDetails = document.querySelector('.order-details');
 const btnMyOrders = document.querySelector('.my-orders');
 const btnBack = document.querySelector('.btn-back');
 
+const orderFormEl = document.querySelector('.orderForm');
+if (orderFormEl) orderFormEl.style.display = 'none';
 
 const createShopPage = () => {
   document.querySelector('.wrapper').innerHTML = `
@@ -119,18 +125,20 @@ const createShopPage = () => {
 
   showCategories();
 
-  
-  ordersContainer.innerHTML = '';
+  if (orderDetails) orderDetails.innerHTML = '';
 }
 
 
 const ordersList = document.createElement('ul');
 ordersList.classList.add('orders-list');
 
+btnBack.onclick = () => createShopPage();
+
 
 btnMyOrders.addEventListener('click', () => {
   const wrapper = document.querySelector('.wrapper');
   wrapper.innerHTML = '';
+  orderDetails.innerHTML = '';
 
   wrapper.appendChild(btnBack);
   wrapper.appendChild(ordersList);
@@ -141,7 +149,8 @@ btnMyOrders.addEventListener('click', () => {
   const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
   if (orders.length === 0) {
-    wrapper.innerHTML = `<p class="empty-text">You don't have any orders yet...</p>`
+    wrapper.innerHTML = `<p class="empty-text">You don't have any orders yet...</p>`;
+    wrapper.prepend(btnBack);         
     return;
   } 
 
@@ -149,10 +158,12 @@ btnMyOrders.addEventListener('click', () => {
 
   for (const order of orders) {
     const orderItem = document.createElement('li');
+    orderItem.dataset.id = order.date;
+
     const btnDelete = document.createElement('button');
     btnDelete.type = 'button';
     btnDelete.textContent = 'Delete';
-    btnDelete.classList.add = 'btn-delete';
+    btnDelete.classList.add('btn-delete');
 
     const tableOrders = document.createElement('table');
     addRows("Date", new Date(order.date).toLocaleString(), tableOrders);
@@ -162,10 +173,30 @@ btnMyOrders.addEventListener('click', () => {
 
     orderItem.appendChild(tableOrders);
     ordersList.appendChild(orderItem);
-  }
+    orderItem.appendChild(btnDelete);
 
-  btnBack.addEventListener('click', () => {
-    createShopPage();
-  })
+    ordersList.onclick = (btn) => {
+      const targetBtn = btn.target.closest('.btn-delete');
+      if (!targetBtn) {
+        return;
+      }
+
+      const targetItem = targetBtn.closest('li');
+      const id = targetItem.dataset.id;
+      const targetId = orders.findIndex(i => i.date === id);
+      if (targetId !== -1) {
+        orders.splice(targetId, 1);
+        localStorage.setItem('orders', JSON.stringify(orders));
+      }
+
+      targetItem.remove();
+
+      if (orders.length === 0) {
+        wrapper.innerHTML = `<p class="empty-text">You don't have any orders yet...</p>`;
+        wrapper.prepend(btnBack);              
+        return;
+      } 
+    }
+  }
 })
 

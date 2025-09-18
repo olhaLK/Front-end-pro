@@ -11,52 +11,33 @@ const methods = {
   CP: "Card payment",
 };
 
-const btnBuy = document.querySelector('.btn-buy');
-const form = document.forms.orderForm;
+
+
 const tableContainer = document.querySelector('.order-details');
-const btnSave = document.querySelector('.btn-save');
 
 
-if (form) {
-  form.style.display = 'none';
-}
+document.querySelector('.btn-buy').addEventListener('click', () => {
+  const product = window.selectedProduct;
+  if (!product) {
+    alert('Please select a product first');
+    return;
+  }
 
-if (btnBuy) {
-  btnBuy.addEventListener('click', () =>{
-    const product = window.selectedProduct;
-    if (!product) {
-      alert('Please select a product first');
-      return;
-    }
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  orders.push({
+    date: new Date().toISOString(),
+    name: product.name,
+    categoryName: product.categoryName,
+    price: product.price
+  });
+  localStorage.setItem('orders', JSON.stringify(orders));
 
-    orders.push({
-      date: new Date().toISOString(),
-      name: product.name,
-      categoryName: product.categoryName,
-      price: product.price
-    });
+  const form = document.forms.orderForm;       
+  if (form) form.style.display = 'flex';
 
-    localStorage.setItem('orders', JSON.stringify(orders));
-  })
-}
+  if (tableContainer) tableContainer.style.display = 'none';
+});
 
-if (btnBuy && form) {
-  btnBuy.addEventListener('click', () => {
-    form.style.display = 'flex';
-  })
-  tableContainer.style.display = 'none'; 
-}
-
-if (tableContainer) {
-  tableContainer.style.display = 'none';
-}
-
-if (btnSave && tableContainer) {
-  btnSave.addEventListener('click', () => {
-    tableContainer.style.display = 'flex';
-  })
-}
 
 
 export function addRows(label, value, table) {
@@ -74,6 +55,7 @@ export function addRows(label, value, table) {
 }
 
 
+
 document.querySelector('.btn-save').addEventListener('click', () => {
   const form = document.forms.orderForm;
   const name = form.name.value.trim();
@@ -84,18 +66,32 @@ document.querySelector('.btn-save').addEventListener('click', () => {
   const comm = form.comm.value.trim();
 
 
+  const checkName = /^[A-Za-z]{2,}\s+[A-Za-z]{2,}$/; 
+  const numRegEx  = /^([1-9]\d{0,2})$/;   
+
+
   if (!window.selectedProduct) {
     alert('Please select a product before saving the order');
     return;
   }
 
+  if (!name.match(checkName)) {
+    alert('Enter your First name and Last Name');
+    return; 
+  }
 
-  const tableContainer = document.querySelector('.order-details');
+  if (!post.match(numRegEx) || !count.match(numRegEx)) {
+    alert('Enter number from 1 to 999');
+    return; 
+  }
+
+  const product = window.selectedProduct;
+
   tableContainer.innerHTML = '';
+  tableContainer.style.display = 'flex';
   
   const tableDetails = document.createElement('table');
 
-  const product = window.selectedProduct;
   addRows("Product", product.name, tableDetails);
   addRows("Category", product.categoryName, tableDetails);
   addRows("Price", product.price, tableDetails);
