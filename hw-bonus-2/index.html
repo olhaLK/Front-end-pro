@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Star Wars</title>
+</head>
+<body class="body">
+    <h1 class="text-center my-3">Star Wars</h1>
+    <div class="container text-center">
+        <div class="row">
+        <div class="col">
+            <div class="characters-container">
+            <h2>Characters</h2>
+            <button type="button" class="characters-btn-download btn btn-outline-info">Download</button>
+            <div class="characters">
+                <ul class="list characters-list"></ul>
+                <button type="button" class="characters-btn-more btn btn-outline-light hidden">Load more</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="planets-container">
+            <h2>Planets</h2>
+            <button type="button" class="planets-btn-download btn btn-outline-info">Download</button>
+            <div class="planets">
+                <ul class="list planets-list"></ul>
+                <button type="button" class="planets-btn-more btn btn-outline-light hidden">Load more</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="vehicles-container">
+            <h2>Vehicles</h2>
+            <button type="button" class="vehicles-btn-download btn btn-outline-info">Download</button>
+            <div class="vehicles">
+                <ul class="list vehicles-list"></ul>
+                <button type="button" class="vehicles-btn-more btn btn-outline-light hidden">Load more</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

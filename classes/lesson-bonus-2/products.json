@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone X200",
+    "category": "Mobile Phones",
+    "price": 899.99,
+    "brand": "TechNova",
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "UltraBook Pro 15",
+    "category": "Laptops",
+    "price": 1499.99,
+    "brand": "ByteWorks",
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Quantum Noise Cancelling Headphones",
+    "category": "Audio",
+    "price": 299.99,
+    "brand": "SoundSphere",
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "name": "Smart Home Hub 3",
+    "category": "Smart Home",
+    "price": 129.99,
+    "brand": "HomeEase",
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "4K Action Camera Z1",
+    "category": "Cameras",
+    "price": 249.99,
+    "brand": "VisionX",
+    "inStock": true
+  },
+  {
+    "id": 6,
+    "name": "Wireless Charging Pad",
+    "category": "Accessories",
+    "price": 49.99,
+    "brand": "ChargePro",
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "name": "VR Headset Elite",
+    "category": "Virtual Reality",
+    "price": 399.99,
+    "brand": "ImmersiTech",
+    "inStock": false
+  },
+  {
+    "id": 8,
+    "name": "Smartwatch S5",
+    "category": "Wearables",
+    "price": 199.99,
+    "brand": "TimeSync",
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "name": "Bluetooth Speaker Mini",
+    "category": "Audio",
+    "price": 59.99,
+    "brand": "SoundSphere",
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "name": "Drone Explorer 8K",
+    "category": "Drones",
+    "price": 899.99,
+    "brand": "SkyPilot",
+    "inStock": false
+  }
+]
