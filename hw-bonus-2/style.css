@@ -18,6 +18,10 @@ h2 {
 
 }
 
+.list li:hover {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }

@@ -10,30 +10,30 @@ const vehiclesList = document.querySelector('.vehicles-list');
 
 const sections = {
     characters: {
-        downloadBtn: ".characters-btn-download",
-        moreBtn: ".characters-btn-more",
+        downloadBtn: '.characters-btn-download',
+        moreBtn: '.characters-btn-more',
         list: peopleList,
         getUrl: () => peopleURL,
-        setUrl: (v) => {
-            peopleURL = v;
+        setUrl: (i) => {
+            peopleURL = i;
         },
     },
     planets: {
-        downloadBtn: ".planets-btn-download",
-        moreBtn: ".planets-btn-more",
+        downloadBtn: '.planets-btn-download',
+        moreBtn: '.planets-btn-more',
         list: planetsList,
         getUrl: () => planetsURL,
-        setUrl: (v) => {
-            planetsURL = v;
+        setUrl: (i) => {
+            planetsURL = i;
         },
     },
     vehicles: {
-        downloadBtn: ".vehicles-btn-download",
-        moreBtn: ".vehicles-btn-more",
+        downloadBtn: '.vehicles-btn-download',
+        moreBtn: '.vehicles-btn-more',
         list: vehiclesList,
         getUrl: () => vehiclesURL,
-        setUrl: (v) => {
-            vehiclesURL = v;
+        setUrl: (i) => {
+            vehiclesURL = i;
         },
     },
 }
@@ -59,7 +59,7 @@ function load(btn, getUrl, setUrl, list) {
 function show(value, list) {
     value.forEach((item) => {
         const element = document.createElement('li');
-        element.textContent = item.name || item.title;
+        element.textContent = item.name;
         element.dataset.url = item.url;
         list.appendChild(element);
     });
@@ -71,7 +71,7 @@ document.addEventListener('click', (event) => {
         const sec = sections[key];
 
         if (event.target.matches(sec.downloadBtn)) {
-            if (sec.list.querySelector("li")) {
+            if (sec.list.querySelector('li')) {
                 break;
             }
             load(sec.moreBtn, sec.getUrl, sec.setUrl, sec.list);
@@ -88,7 +88,7 @@ document.addEventListener('click', (event) => {
 
 //---------OPEN INFO-------------
 
-function showInfoDetails(bodyHtml) {
+function showInfoDetails(title, bodyHtml) {
     const modalContainer = document.createElement('div');
 
     modalContainer.innerHTML = `
@@ -96,43 +96,50 @@ function showInfoDetails(bodyHtml) {
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">'Details'}</h5>
+                        <h3 class="modal-title">${title || 'Details'}</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body p-2">
                         ${bodyHtml}
                     </div>
-                <div/>
-            <div/>
-        <div/>
-    `
-    const element = modalContainer.firstChild
+                </div>
+            </div>
+        </div>
+    `;
+
+    const element = modalContainer.firstElementChild;
     document.body.appendChild(element);
 
     const modal = new bootstrap.Modal(element);
     modal.show();
 
     element.addEventListener('hidden.bs.modal', () => {
-        modal.dispose();
         element.remove();
     })
 }
 
+
 function infoDetails(url) {
     fetch(url)
-        .then(r => r.json())
+        .then(d => d.json())
         .then(data => {
-            const title = 'Details';
+            const title = data.name;
+
+            let text = '';
+            for (const key in data) {
+                let value = data[key];
+                text += `${key}: ${value}\n`;
+            }
+
+            const body = `<pre>${text}</pre>`;
+            showInfoDetails(title, body);
         })
 }
 
 
-
-document.addEventListener('click', (item) => {
-    const li = item.target.closest('.list li');
+document.addEventListener('click', (event) => {
+    const li = event.target.closest('.list li');
     const url = li.dataset.url;
-
-    if(!li && !url) return;
 
     infoDetails(url);
 })
