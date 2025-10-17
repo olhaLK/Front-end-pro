@@ -1,8 +1,12 @@
 function myBDay() {
     const container = document.createElement('div');
     container.innerHTML = `
-    <h2>MY B-DAY</h2>
-    <div class="dateContainer"></div>
+     <div class="d-flex justify-content-center align-items-center my-2">
+        <div class="rounded p-4 text-center bg-light shadow">
+        <h2 class="text-primary mb-3">MY B-DAY</h2>
+        <div class="dateContainer fw-bold fs-4 text-dark"></div>
+        </div>
+    </div>
     `;
     document.body.appendChild(container);
 
@@ -13,7 +17,7 @@ function myBDay() {
     dateContainer.textContent = formattedDate;
 }
 
-myBDay(); // why it waits for the next function?
+
 
 function userBDay() {
     const regEx = /^([0-3][0-9])\/([0-1][0-9])\/([1-2][0-9]{3})$/;               
@@ -21,8 +25,12 @@ function userBDay() {
 
     const container = document.createElement('div');
     container.innerHTML = `
-    <h2>YOUR B-DAY</h2>
-    <div class="userDateContainer"></div>
+     <div class="d-flex justify-content-center align-items-center my-2">
+        <div class="rounded p-4 text-center bg-light shadow">
+        <h2 class="text-primary mb-3">YOUR B-DAY</h2>
+        <div class="userDateContainer fw-bold fs-4 text-dark"></div>
+        </div>
+    </div>
     `;
     document.body.appendChild(container);
 
@@ -40,15 +48,22 @@ function userBDay() {
             `;
             document.body.appendChild(alertEl);
 
-            //TODO add close eventListener
+        const closeBtn = alertEl.querySelector('.close');
+        closeBtn?.addEventListener('click', () => {
+            alertEl.remove();
+            container.innerHTML = '';
+            userBDay();
+        })
     } else {
         const formattedDate = moment(userDate, 'DD/MM/YYYY').format('MMMM Do YYYY');
         dateContainer.textContent = formattedDate;
     }
-
-
 }
 
 
 
-userBDay();
+myBDay(); 
+
+setTimeout(() => {
+    userBDay();
+}, 1000)
