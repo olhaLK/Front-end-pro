@@ -31,10 +31,6 @@ function downloadPhoto() {
                             <div class="modal-body">
                                 <p>${photo}</p>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -42,7 +38,8 @@ function downloadPhoto() {
 
                 document.body.appendChild(modal);
 
-                const modalEl = new bootstrap.Modal(modal);
+                const modalNode = modal.querySelector('.modal');
+                const modalEl = new bootstrap.Modal(modalNode);
                 modalEl.show();
             })
             .catch((err) => console.log('Error fetching photo:', err));

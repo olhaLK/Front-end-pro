@@ -15,9 +15,10 @@ function downloadPhoto() {
       var photo = result[num].title;
       console.log("Index: ".concat(num, ", Title: ").concat(photo));
       var modal = document.createElement('div');
-      modal.innerHTML = "\n                    <div class=\"modal\" tabindex=\"-1\">\n                        <div class=\"modal-dialog\">\n                            <div class=\"modal-content\">\n                            <div class=\"modal-header\">\n                                <h5 class=\"modal-title\">Photo</h5>\n                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n                            </div>\n                            <div class=\"modal-body\">\n                                <p>".concat(photo, "</p>\n                            </div>\n                            <div class=\"modal-footer\">\n                                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>\n                                <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n                            </div>\n                            </div>\n                        </div>\n                    </div>\n                ");
+      modal.innerHTML = "\n                    <div class=\"modal\" tabindex=\"-1\">\n                        <div class=\"modal-dialog\">\n                            <div class=\"modal-content\">\n                            <div class=\"modal-header\">\n                                <h5 class=\"modal-title\">Photo</h5>\n                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n                            </div>\n                            <div class=\"modal-body\">\n                                <p>".concat(photo, "</p>\n                            </div>\n                            </div>\n                        </div>\n                    </div>\n                ");
       document.body.appendChild(modal);
-      var modalEl = new bootstrap.Modal(modal);
+      var modalNode = modal.querySelector('.modal');
+      var modalEl = new bootstrap.Modal(modalNode);
       modalEl.show();
     })["catch"](function (err) {
       return console.log('Error fetching photo:', err);
