@@ -1,3 +1,6 @@
+import '../style.scss';
+
+
 const btnDownload = document.querySelector('.btn-dw');
 const btnWarning = document.querySelector('.btn-wr');
 
