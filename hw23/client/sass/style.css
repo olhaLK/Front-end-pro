@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.body {
+  color: #000;
+}
+
+.wrapper {
+  max-width: 1440px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.add {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Times New Roman", Times, serif;
+}
+.add-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.add-container .name-container,
+.add-container .priority-container,
+.add-container .details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.add-container .name-container label,
+.add-container .priority-container label,
+.add-container .details-container label {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+.add-container .name-container input,
+.add-container .name-container select,
+.add-container .name-container textarea,
+.add-container .priority-container input,
+.add-container .priority-container select,
+.add-container .priority-container textarea,
+.add-container .details-container input,
+.add-container .details-container select,
+.add-container .details-container textarea {
+  padding: 0.8rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.add-container .name-container input:focus,
+.add-container .name-container select:focus,
+.add-container .name-container textarea:focus,
+.add-container .priority-container input:focus,
+.add-container .priority-container select:focus,
+.add-container .priority-container textarea:focus,
+.add-container .details-container input:focus,
+.add-container .details-container select:focus,
+.add-container .details-container textarea:focus {
+  outline: none;
+  border-color: #e27f4a;
+  box-shadow: 0 0 0 3px rgba(226, 127, 74, 0.1);
+}
+.add-container .name-container input::-moz-placeholder, .add-container .name-container select::-moz-placeholder, .add-container .name-container textarea::-moz-placeholder, .add-container .priority-container input::-moz-placeholder, .add-container .priority-container select::-moz-placeholder, .add-container .priority-container textarea::-moz-placeholder, .add-container .details-container input::-moz-placeholder, .add-container .details-container select::-moz-placeholder, .add-container .details-container textarea::-moz-placeholder {
+  color: #a0a0a0;
+}
+.add-container .name-container input::placeholder,
+.add-container .name-container select::placeholder,
+.add-container .name-container textarea::placeholder,
+.add-container .priority-container input::placeholder,
+.add-container .priority-container select::placeholder,
+.add-container .priority-container textarea::placeholder,
+.add-container .details-container input::placeholder,
+.add-container .details-container select::placeholder,
+.add-container .details-container textarea::placeholder {
+  color: #a0a0a0;
+}
+.add-container .name-container textarea,
+.add-container .priority-container textarea,
+.add-container .details-container textarea {
+  font-family: "Times New Roman", Times, serif;
+  min-height: 100px;
+  resize: vertical;
+}
+.add-btn {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #e27f4a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.add-btn:hover {
+  background-color: #fca06e;
+  transform: translateY(-1px);
+}
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.title {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}/*# sourceMappingURL=style.css.map */
