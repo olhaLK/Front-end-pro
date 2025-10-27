@@ -1,32 +1,39 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 
 export default {
   mode: 'production', 
   entry: './js/app.js',
   devtool: 'source-map',
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: false
+    assetModuleFilename: 'assets/[name][ext]',
+    clean: true
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@assets': path.resolve(__dirname, 'assets'),
-      '@styles': path.resolve(__dirname, './'),
-      '@js': path.resolve(__dirname, 'js')
-    }
-  }, 
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   module: {
     rules: [
-      { 
-        test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] 
+       {
+        test: /\.(s[ac]ss|css)$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
@@ -44,13 +51,23 @@ export default {
      }
     ]
   }, 
+  plugins: [
+    new HtmlWebpackPlugin({ 
+      template: './src/index.html'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ 
+        from: 'assets', to: 'assets', noErrorOnMissing: true 
+      }]
+    })
+  ],
   target: "web",
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
     compress: true,
-    port: 5500,
+    port: 5050,
     open: true,
   }
 };
