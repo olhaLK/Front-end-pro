@@ -120,4 +120,54 @@
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: 600;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  font-family: "Times New Roman", Times, serif;
+  transition: all 0.3s ease;
+}
+.task-item:hover {
+  background-color: #f1f1f1;
+}
+.task-item.completed {
+  color: grey;
+  text-decoration: line-through;
+}
+.task-item .task-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.task-item button {
+  padding: 0.5rem 1rem;
+  background-color: #e27f4a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.task-item button:hover {
+  background-color: #fca06e;
+  transform: translateY(-1px);
+}
+.task-item button:active {
+  transform: translateY(0);
+}
+
+#task-list {
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.task-item input[type=checkbox] {
+  margin-right: 1rem;
 }/*# sourceMappingURL=style.css.map */

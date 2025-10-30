@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
 </head>
 <body>
     <h2 class="title">To Do List</h2>
@@ -18,9 +18,9 @@
             <div class="priority-container">
                 <label for="priority">Priority</label>
                 <select id="priority">
-                    <option value="pr-1">Priority 1</option>
-                    <option value="pr-2">Priority 2</option>
-                    <option value="pr-3">Priority 3</option>
+                    <option value="high">Priority 1</option>
+                    <option value="medium">Priority 2</option>
+                    <option value="low">Priority 3</option>
                 </select>
             </div>
             
@@ -29,11 +29,12 @@
                 <textarea id="details" class="details" placeholder="Enter details about task"></textarea>
             </div>
         </div> 
+
         <button type="button" class="add-btn">Add</button>
 
-        <div id="list"></div>
+        <ul id="task-list"></ul>
     </div>
 
     <script src="dist/main.js"></script>
 </body>
-</html> 
+</html>
