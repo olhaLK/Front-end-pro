@@ -1,0 +1,18 @@
+.questions {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.questions h2 {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+

@@ -1,0 +1,27 @@
+.app {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn {
+  display: block;
+  margin: 8px auto;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-correct {
+  background-color: #a7e3a7;
+  border-color: #28a745;
+}
+
+.btn-wrong {
+  background-color: #f8c4c4;
+  border-color: #dc3545;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+}
