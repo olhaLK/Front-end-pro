@@ -1,0 +1,19 @@
+.showBtn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: #4c8bf5;
+  border: 2px solid #ffffff40;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.showBtn:hover {
+  background: #3c73d9;
+}
+
+.showBtn:active {
+  transform: scale(0.96);
+}
