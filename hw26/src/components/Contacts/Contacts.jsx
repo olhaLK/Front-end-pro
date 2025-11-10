@@ -15,7 +15,7 @@ export default function Contacts() {
 
     useEffect(() => {
         loadData();
-    }, [])
+    }, []);
 
     const handleAdd = () => {
         setModalOpen(true);
@@ -30,7 +30,7 @@ export default function Contacts() {
     }
 
     const handleSave = (contact) => {
-        setItems([...items, contact]); //here
+        setItems([...items, contact]); 
         setModalOpen(false);
     }
 
