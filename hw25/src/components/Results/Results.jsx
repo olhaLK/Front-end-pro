@@ -11,21 +11,11 @@ export default function Results() {
     const [showResults, setShowResults] = useState(false);
 
     function handleItemClick(id) {
-        console.log("Click, id =", id);
-
-        switch (id) {
-            case 1:
-                setCatClickCounter((prev) => prev + 1);
-                break;
-            case 2:
-                setDogClickCounter((prev) => prev + 1);
-                break;
-            case 3:
-                setRabbittClickCounter((prev) => prev + 1);
-                break;
-            default:
-                break;
-        }
+        ({
+            1: setCatClickCounter,
+            2: setDogClickCounter,
+            3: setRabbittClickCounter,
+        }[id])?.((prev) => prev + 1);
     }
 
     function handleShowResults() {

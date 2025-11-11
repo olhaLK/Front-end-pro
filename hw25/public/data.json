@@ -1,5 +1,5 @@
 [
-    { "id": "1", "content": "🐱", "text": "cat" },
-    { "id": "2", "content": "🐶", "text": "dog" },
-    { "id": "3", "content": "🐰", "text": "rabbit" }
+    { "id": 1, "content": "🐱", "text": "cat" },
+    { "id": 2, "content": "🐶", "text": "dog" },
+    { "id": 3, "content": "🐰", "text": "rabbit" }
 ]
