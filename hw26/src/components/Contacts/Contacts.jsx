@@ -30,7 +30,7 @@ export default function Contacts() {
     }
 
     const handleSave = (contact) => {
-        setItems([...items, contact]); 
+        setItems([...items, contact]);
         setModalOpen(false);
     }
 
