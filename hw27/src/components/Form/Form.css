@@ -1,0 +1,50 @@
+.content {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.content input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 15px;
+}
+
+.content input:focus {
+  border-color: #1976d2;
+}
+
+.btn-save {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.btn-save:disabled {
+  background-color: #9dbce0;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background-color: #cccccc;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+}
