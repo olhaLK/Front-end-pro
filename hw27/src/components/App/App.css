@@ -1,3 +1,53 @@
+.light-theme {
+    --background-color: #ffffff;
+    --text-color: #333;
+    --btn-background-color: #1976d2;
+    --btn-text-color: white;
+    --table-background-color: #ffffff;
+    --btn-delete-background: #e63946;
+    --btn-delete-hover: #b51c25;
+    --input-border-color: #ccc;
+    --input-focus-color: #1976d2;
+}
+
+.dark-theme {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --btn-background-color: #6200ea;
+    --btn-text-color: white;
+    --table-background-color: #333;
+    --btn-delete-background: #ff1744;
+    --btn-delete-hover: #d50000;
+    --input-border-color: #444;
+    --input-focus-color: #6200ea;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.btn-add, .btn-save, .btn-cancel, button.btn-delete {
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+}
+
+table {
+    background: var(--table-background-color);
+}
+
+button.btn-delete:hover {
+    background-color: var(--btn-delete-hover);
+}
+
+.content input {
+    border: 1px solid var(--input-border-color);
+}
+
+.content input:focus {
+    border-color: var(--input-focus-color);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

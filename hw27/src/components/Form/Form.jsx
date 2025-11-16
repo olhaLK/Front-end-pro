@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './Form.css';
 import { useNavigate } from "react-router";
-
+import { getText, LanguageContext, ThemeContext } from "../../contexts/contexts";
 
 
 export default function Form({ onSave }) {
@@ -17,27 +17,33 @@ export default function Form({ onSave }) {
     const surnameRegEx = /^[A-Z][a-z]{1,14}$/;
     const phoneRegEx = /^\d{10,12}$/;
 
+    const { language } = useContext(LanguageContext);
+    const { theme } = useContext(ThemeContext);
+
+    console.log('Current language:', language);
+    console.log('Current theme:', theme);
+
     const fieldConfig = {
         name: {
             regEx: nameRegEx,
             setValue: setName,
             setError: setNameError,
-            requiredAlert: 'Name is required',
-            invalidAlert: 'Must start with capital and be 2-10 letters',
+            requiredAlert: getText(language, 'nameRequired'),
+            invalidAlert: getText(language, 'nameInvalid'),
         },
         surname: {
             regEx: surnameRegEx,
             setValue: setSurname,
             setError: setSurnameError,
-            requiredAlert: 'Surname is required',
-            invalidAlert: 'Must start with capital and be 2-15 letters',
+            requiredAlert: getText(language, 'surnameRequired'),
+            invalidAlert: getText(language, 'surnameInvalid'),
         },
         phone: {
             regEx: phoneRegEx,
             setValue: setPhone,
             setError: setPhoneError,
-            requiredAlert: 'Phone is required',
-            invalidAlert: 'Must be 10-12 digits',
+            requiredAlert: getText(language, 'phoneRequired'),
+            invalidAlert: getText(language, 'phoneInvalid'),
         },
     }
 
@@ -86,18 +92,18 @@ export default function Form({ onSave }) {
     }
 
     return (
-        <div className="content">
-            <h3>Add Contact</h3>
+        <div className={`content ${theme === 'dark' ? 'content-dark' : 'content-light'}`}>
+            <h3>{getText(language, 'add')}</h3>
             <form onSubmit={handleSubmit}>
                 {nameError && <div style={{ color: 'red' }}>{nameError}</div>}
-                <input type="text" name="name" value={name} placeholder="Name" onChange={handleChange} />
+                <input type="text" name="name" value={name} placeholder={getText(language, 'name')} onChange={handleChange} />
                 {surnameError && <div style={{ color: 'red' }}>{surnameError}</div>}
-                <input type="text" name="surname" value={surname} placeholder="Surname" onChange={handleChange} />
+                <input type="text" name="surname" value={surname} placeholder={getText(language, 'surname')} onChange={handleChange} />
                 {phoneError && <div style={{ color: 'red' }}>{phoneError}</div>}
-                <input type="tel" name="phone" value={phone} placeholder="380 000 000 000" onChange={handleChange} />
+                <input type="tel" name="phone" value={phone} placeholder={getText(language, 'phone')} onChange={handleChange} />
                 <div className="btn">
-                    <button type="button" className="btn-cancel" onClick={() => navigate('/')}>Cancel</button>
-                    <button type="submit" className="btn-save" disabled={!validData}>Save</button>
+                    <button type="button" className="btn-cancel" onClick={() => navigate('/')}>{getText(language, 'cancel')}</button>
+                    <button type="submit" className="btn-save" disabled={!validData}>{getText(language, 'save')}</button>
                 </div>
             </form>
         </div>
