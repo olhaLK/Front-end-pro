@@ -45,13 +45,12 @@ export default function App() {
     }
 
     const currentLanguage = { value: language, changeLanguage: handleLanguageChange };
-    const currentTheme = { value: theme, changeTheme: handleThemeChange };
+    const currentTheme = { theme, changeTheme: handleThemeChange };
 
     useEffect(() => {
-        const root = document.getElementById('root');
-        if (root) {
-            root.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
-        }
+        const body = document.body;
+        body.classList.remove("light-theme", "dark-theme");
+        body.classList.add(theme === "dark" ? "dark-theme" : "light-theme");
     }, [theme])
 
     return (

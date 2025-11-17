@@ -3,30 +3,39 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    width: 70%;
+    margin: 30px auto 0;
+    padding: 32px 24px;
+    color: var(--text-color);
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .page404-heading {
-    font-size: 6rem;
-    color: #ff4d4d;
+    font-size: 4rem;
     margin: 0;
+    color: var(--btn-delete-background); 
 }
 
 .page404-message {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 20px 0;
-    color: #333;
+    color: var(--text-color);
 }
 
 .page404-link {
-    font-size: 1.2rem;
-    color: #007bff;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 10px;
     text-decoration: none;
+
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
 }
 
 .page404-link:hover {
-    text-decoration: underline;
+    opacity: 0.9;
 }

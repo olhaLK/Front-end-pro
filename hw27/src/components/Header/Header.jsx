@@ -1,26 +1,27 @@
+import "./Header.css";
 import { useContext } from "react";
 import { getText, LanguageContext, ThemeContext } from "../../contexts/contexts";
 
 export default function Header() {
-    const { language, changeLanguage } = useContext(LanguageContext);
+    const { value, changeLanguage } = useContext(LanguageContext);
     const { theme, changeTheme } = useContext(ThemeContext);
 
-    console.log('Current language:', language);
+    console.log('Current language:', value);
     console.log('Current theme:', theme);
     
     return (
-        <>
-            <div>
-                <span>{getText(language, 'language')}:</span>
-                <button type="button" onClick={() => changeLanguage('en')}>English</button>
-                <button type="button" onClick={() => changeLanguage('ua')}>Українська</button>
+        <div className="header-container">
+            <div className="header-section">
+                <span>{getText(value, 'language')}:</span>
+                <button className="header-btn" type="button" onClick={() => changeLanguage('en')}>English</button>
+                <button className="header-btn" type="button" onClick={() => changeLanguage('ua')}>Українська</button>
             </div>
 
-            <div>
-                <span>{getText(language, 'theme')}:</span>
-                <button type="button" onClick={() => changeTheme('light')}>Light</button>
-                <button type="button" onClick={() => changeTheme('dark')}>Dark</button>
+            <div className="header-section">
+                <span>{getText(value, 'theme')}:</span>
+                <button className="header-btn" type="button" onClick={() => changeTheme('light')}>Light</button>
+                <button className="header-btn" type="button" onClick={() => changeTheme('dark')}>Dark</button>
             </div>
-        </>
+        </div>
     )
 }

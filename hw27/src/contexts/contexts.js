@@ -21,6 +21,8 @@ export const texts = {
         surnameInvalid: 'Surname must start with a capital letter and be between 2-15 characters',
         phoneRequired: 'Phone is required',
         phoneInvalid: 'Phone must be 10-12 digits',
+        notFoundMessage: 'Oops! The page you are looking for does not exist.',
+        backHome: 'Go back to Home',
     },
     ua: {
         add: 'Додати контакт',
@@ -39,6 +41,8 @@ export const texts = {
         surnameInvalid: 'Прізвище повинно починатися з великої літери та бути від 2 до 15 символів',
         phoneRequired: 'Телефон обов\'язковий',
         phoneInvalid: 'Телефон повинен містити від 10 до 12 цифр',
+        notFoundMessage: 'На жаль, такої сторінки не існує.',
+        backHome: 'Повернутися на головну',
     },
 }
 

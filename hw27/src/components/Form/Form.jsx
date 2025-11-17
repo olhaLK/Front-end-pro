@@ -17,10 +17,10 @@ export default function Form({ onSave }) {
     const surnameRegEx = /^[A-Z][a-z]{1,14}$/;
     const phoneRegEx = /^\d{10,12}$/;
 
-    const { language } = useContext(LanguageContext);
+    const { value } = useContext(LanguageContext);
     const { theme } = useContext(ThemeContext);
 
-    console.log('Current language:', language);
+    console.log('Current language:', value);
     console.log('Current theme:', theme);
 
     const fieldConfig = {
@@ -28,22 +28,22 @@ export default function Form({ onSave }) {
             regEx: nameRegEx,
             setValue: setName,
             setError: setNameError,
-            requiredAlert: getText(language, 'nameRequired'),
-            invalidAlert: getText(language, 'nameInvalid'),
+            requiredAlert: getText(value, 'nameRequired'),
+            invalidAlert: getText(value, 'nameInvalid'),
         },
         surname: {
             regEx: surnameRegEx,
             setValue: setSurname,
             setError: setSurnameError,
-            requiredAlert: getText(language, 'surnameRequired'),
-            invalidAlert: getText(language, 'surnameInvalid'),
+            requiredAlert: getText(value, 'surnameRequired'),
+            invalidAlert: getText(value, 'surnameInvalid'),
         },
         phone: {
             regEx: phoneRegEx,
             setValue: setPhone,
             setError: setPhoneError,
-            requiredAlert: getText(language, 'phoneRequired'),
-            invalidAlert: getText(language, 'phoneInvalid'),
+            requiredAlert: getText(value, 'phoneRequired'),
+            invalidAlert: getText(value, 'phoneInvalid'),
         },
     }
 
@@ -93,17 +93,17 @@ export default function Form({ onSave }) {
 
     return (
         <div className={`content ${theme === 'dark' ? 'content-dark' : 'content-light'}`}>
-            <h3>{getText(language, 'add')}</h3>
+            <h3>{getText(value, 'add')}</h3>
             <form onSubmit={handleSubmit}>
                 {nameError && <div style={{ color: 'red' }}>{nameError}</div>}
-                <input type="text" name="name" value={name} placeholder={getText(language, 'name')} onChange={handleChange} />
+                <input type="text" name="name" value={name} placeholder={getText(value, 'name')} onChange={handleChange} />
                 {surnameError && <div style={{ color: 'red' }}>{surnameError}</div>}
-                <input type="text" name="surname" value={surname} placeholder={getText(language, 'surname')} onChange={handleChange} />
+                <input type="text" name="surname" value={surname} placeholder={getText(value, 'surname')} onChange={handleChange} />
                 {phoneError && <div style={{ color: 'red' }}>{phoneError}</div>}
-                <input type="tel" name="phone" value={phone} placeholder={getText(language, 'phone')} onChange={handleChange} />
+                <input type="tel" name="phone" value={phone} placeholder={getText(value, 'phone')} onChange={handleChange} />
                 <div className="btn">
-                    <button type="button" className="btn-cancel" onClick={() => navigate('/')}>{getText(language, 'cancel')}</button>
-                    <button type="submit" className="btn-save" disabled={!validData}>{getText(language, 'save')}</button>
+                    <button type="button" className="btn-cancel" onClick={() => navigate('/')}>{getText(value, 'cancel')}</button>
+                    <button type="submit" className="btn-save" disabled={!validData}>{getText(value, 'save')}</button>
                 </div>
             </form>
         </div>
