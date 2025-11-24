@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import './Form.css';
 import { useNavigate } from "react-router";
-import { getText, LanguageContext, ThemeContext } from "../../contexts/contexts";
+import { getText, LanguageContext, ThemeContext, UserContext } from "../../contexts/contexts";
 
 
 export default function Form({ onSave }) {
@@ -19,6 +19,9 @@ export default function Form({ onSave }) {
 
     const { value } = useContext(LanguageContext);
     const { theme } = useContext(ThemeContext);
+    const { user } = useContext(UserContext);
+
+    const isAdmin = user?.role === 'admin';
 
     console.log('Current language:', value);
     console.log('Current theme:', theme);
@@ -93,7 +96,7 @@ export default function Form({ onSave }) {
 
     return (
         <div className={`content ${theme === 'dark' ? 'content-dark' : 'content-light'}`}>
-            <h3>{getText(value, 'add')}</h3>
+            <h2>{getText(value, 'add')}</h2>
             <form onSubmit={handleSubmit}>
                 {nameError && <div style={{ color: 'red' }}>{nameError}</div>}
                 <input type="text" name="name" value={name} placeholder={getText(value, 'name')} onChange={handleChange} />

@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 export const defaultLanguage = 'en';
 export const defaultTheme= 'light';
+export const defaultUser = null;
 
 export const texts = {
     en: {
@@ -23,6 +24,28 @@ export const texts = {
         phoneInvalid: 'Phone must be 10-12 digits',
         notFoundMessage: 'Oops! The page you are looking for does not exist.',
         backHome: 'Go back to Home',
+
+        login: 'Login',
+        password: 'Password',
+        repeatPassword: 'Repeat password',
+        signUp: 'Sign up',
+        signIn: 'Sign in',
+        account: 'Account',
+        logOut: 'Log Out',
+
+        role: 'Role',
+        gender: 'Gender',
+        female: 'F',
+        male: 'M',
+        email: 'E-mail',
+        agreementText: 'I agree to share my personal data.',
+        admin: 'admin',
+        user: 'user',
+
+        alertUser: 'User not found. Please register first.',
+        alertSignIn: 'Incorrect login or password.',
+        alertAuth: 'To view the phone book, you must log in.',
+        loginExists: 'User with this login already exists',
     },
     ua: {
         add: 'Додати контакт',
@@ -43,9 +66,30 @@ export const texts = {
         phoneInvalid: 'Телефон повинен містити від 10 до 12 цифр',
         notFoundMessage: 'На жаль, такої сторінки не існує.',
         backHome: 'Повернутися на головну',
+
+        login: 'Логін',
+        password: 'Пароль',
+        repeatPassword: 'Повторіть пароль',
+        signUp: 'Зареєструватися',
+        signIn: 'Увійти',
+        account: 'Акаунт',
+        logOut: 'Вийти',
+
+        role: 'Роль',
+        gender: 'Стать',
+        female: 'Ж',
+        male: 'Ч',
+        email: 'Пошта',
+        agreementText: 'Я погоджуюсь на обробку моїх персональних даних.',
+        admin: 'адмін',
+        user: 'користувач',
+
+        alertUser: 'Користувача не знайдено. Спочатку зареєструйтесь.',
+        alertSignIn: 'Невірний логін або пароль.',
+        alertAuth: 'Щоб переглянути телефонну книгу, вам потрібно увійти в систему.',
+        loginExists: 'Користувач із цим логіном вже існує',
     },
 }
-
 
 export const LanguageContext = createContext({
     language: defaultLanguage,
@@ -61,3 +105,8 @@ export const getText = (language, key) => {
     const currentLanguage = texts[language] || texts.en;  
     return currentLanguage[key] || `Missing translation for '${key}'`; 
 }
+
+export const UserContext = createContext({
+  user: defaultUser,
+  setUser: () => {},
+})

@@ -18,6 +18,10 @@
   display: block;
 }
 
+.btn-add:hover {
+  opacity: 0.5;
+}
+
 table {
   border-collapse: collapse;
   width: 60%;

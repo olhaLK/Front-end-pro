@@ -1,13 +1,17 @@
 import { useContext } from 'react';
 import './Contacts.css';
 import { useNavigate } from "react-router";
-import { getText, LanguageContext, ThemeContext } from '../../contexts/contexts';
+import { getText, LanguageContext, ThemeContext, UserContext } from '../../contexts/contexts';
 
 export default function Contacts({ items, onDelete }) {
     const navigate = useNavigate();
 
     const { value } = useContext(LanguageContext);
     const { theme } = useContext(ThemeContext);
+    const { user } = useContext(UserContext);
+
+    const authorized = !!user;
+    const isAdmin = user?.role === 'admin';
 
     const handleAdd = () => {
         navigate('/form');
@@ -17,15 +21,25 @@ export default function Contacts({ items, onDelete }) {
         onDelete(id);
     }
 
+    if (!authorized) {
+        return (
+            <div className={`contacts-wrapper ${theme === 'dark' ? 'contacts-wrapper-dark' : 'contacts-wrapper-light'}`}>
+                {getText(value, 'alertAuth')}
+            </div>
+        );
+    }
+
     return (
         <div className={`contacts-wrapper ${theme === 'dark' ? 'contacts-wrapper-dark' : 'contacts-wrapper-light'}`}>
-            <button type="button" onClick={handleAdd} className="btn-add">{getText(value, 'add')}</button>
+            {isAdmin && (
+                <button type="button" onClick={handleAdd} className="btn-add">{getText(value, 'add')}</button>
+            )}
             <table>
                 <thead>
                     <tr>
                         <th>{getText(value, 'name')}</th>
                         <th>{getText(value, 'phone')}</th>
-                        <th>{getText(value, 'actions')}</th>
+                        {isAdmin && <th>{getText(value, 'actions')}</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -33,11 +47,13 @@ export default function Contacts({ items, onDelete }) {
                         <tr key={el.id}>
                             <td>{el.name}</td>
                             <td>{el.phone}</td>
-                            <td>
-                                <button onClick={() => handleDelete(el.id)} className="btn-delete">
-                                    {getText(value, 'delete')}
-                                </button>
-                            </td>
+                            {isAdmin && (
+                                <td>
+                                    <button onClick={() => handleDelete(el.id)} className="btn-delete">
+                                        {getText(value, 'delete')}
+                                    </button>
+                                </td>
+                            )}
                         </tr>
                     ))}
                 </tbody>

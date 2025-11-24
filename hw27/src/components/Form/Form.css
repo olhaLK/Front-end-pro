@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.content h3 {
+.content h2 {
   color: var(--text-color);
   margin-bottom: 20px;
 }
@@ -68,6 +68,10 @@
   background-color: transparent;
   color: var(--text-color);
   border: 1px solid var(--input-border-color);
+}
+
+.btn-cancel:hover {
+  opacity: 0.5;
 }
 
 .dark-theme .btn-cancel {
