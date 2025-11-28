@@ -1,0 +1,87 @@
+/* Центрируем контент */
+#root {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Форма */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+}
+
+.todo-input input {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #777;
+  background-color: #222;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  width: 180px;
+}
+
+.todo-input input:focus {
+  border-color: #bbb;
+}
+
+.todo-input button {
+  padding: 8px 16px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.todo-input button:hover {
+  background-color: #555;
+}
+
+/* Список */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+ul li {
+  padding: 10px 14px;
+  background-color: #1f1f1f;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* Count */
+.count-wrapper {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #ccc;
+  padding-top: 1rem;
+  position: relative;
+}
+
+.count-wrapper::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
