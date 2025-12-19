@@ -1,6 +1,49 @@
 .TaskCard {
-  min-width: 100px;
-  border: 1px solid beige;
-  border-radius: 10px;
-  padding: 20px;
+  background: #2d2d2d;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  border-left: 4px solid #ff9f43;
+  border: 1px solid #3a3a3a;
+  border-left: 4px solid #ff9f43;
+}
+
+.TaskCard:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.TaskCard h4 {
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.TaskCard p {
+  margin: 0 0 0.5rem 0;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.TaskCard .task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #808080;
+  margin-top: auto;
+}
+
+.TaskCard .status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-weight: 600;
+  background: #1a1a1a;
+  color: #ff9f43;
 }

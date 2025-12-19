@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import './ProjectsPage.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ export default function ProjectsPage() {
 
   useEffect(() => {
     dispatch(getProjectsAsync());
-  }, [dispatch]);
+  }, [dispatch])
 
   const handleClick = projectId => {
     navigate(`/tasks/${projectId}`);

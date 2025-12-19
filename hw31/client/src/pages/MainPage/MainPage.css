@@ -1,0 +1,25 @@
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.MainPage .hero {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.MainPage h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.MainPage p {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0 auto;
+}

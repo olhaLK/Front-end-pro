@@ -1,6 +1,61 @@
-.Projects {
-  margin-top: 50px;
+.ProjectsPage {
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ProjectsPage .top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #2d2d2d;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #3a3a3a;
+}
+
+.ProjectsPage .top-row h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.ProjectsPage .add-project-btn {
+  background: linear-gradient(135deg, #ff9f43 0%, #ff8c1a 100%);
+  color: #1a1a1a;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 159, 67, 0.3);
+  white-space: nowrap;
+}
+
+.ProjectsPage .add-project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 159, 67, 0.45);
+}
+
+.Projects {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.Projects .no-projects {
+  color: #808080;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  background: #2d2d2d;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  grid-column: 1 / -1;
+  border: 1px solid #3a3a3a;
 }

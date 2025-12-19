@@ -1,10 +1,20 @@
 import PriorityLabel from '../PriorityLabel/PriorityLabel';
 import './ProjectCard.css';
+import { useDispatch } from 'react-redux';
+import { deleteProjectAsync } from '../../store/features/projects';
 
 export default function ProjectCard({ id, title, description, priority, onClick }) {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     onClick && onClick(id);
   }
+
+  const handleDelete = (event) => {
+    event.stopPropagation();
+    dispatch(deleteProjectAsync(id));
+  }
+
   return (
     <div className='ProjectCard' onClick={handleClick}>
       <h3>{title}</h3>
@@ -12,6 +22,7 @@ export default function ProjectCard({ id, title, description, priority, onClick 
       <p>
         {description}
       </p>
+      <button type="button" onClick={handleDelete} className="delete-btn">Delete</button>
     </div>
   )
 }

@@ -1,7 +1,15 @@
 import PriorityLabel from '../PriorityLabel/PriorityLabel';
 import './TaskCard.css';
+import { useDispatch } from 'react-redux';
+import { deleteTaskAsync } from '../../store/features/tasks';
 
-export default function TaskCard({ title, description, priority }) {
+export default function TaskCard({ id, title, description, priority }) {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteTaskAsync(id));
+  }
+
   return (
     <div className='TaskCard'>
       <h3>{title}</h3>
@@ -9,6 +17,7 @@ export default function TaskCard({ title, description, priority }) {
       <p>
         {description.slice(0, 100)}
       </p>
+      <button type="button" onClick={handleDelete} className="delete-btn">Delete</button>
     </div>
   )
 }

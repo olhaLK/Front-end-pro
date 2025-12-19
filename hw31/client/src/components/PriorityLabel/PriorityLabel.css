@@ -1,11 +1,42 @@
+.PriorityLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
 .PriorityLabel_HIGH {
-  color: red;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.PriorityLabel_HIGH:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
 }
 
 .PriorityLabel_MEDIUM {
-  color: orange;
+  background: linear-gradient(135deg, #ffa502 0%, #ff9f43 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 165, 2, 0.3);
+}
+
+.PriorityLabel_MEDIUM:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 165, 2, 0.4);
 }
 
 .PriorityLabel_LOW {
-  color: blue;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44b5ad 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+}
+
+.PriorityLabel_LOW:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
 }
